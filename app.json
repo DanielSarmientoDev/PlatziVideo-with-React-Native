@@ -1,0 +1,12 @@
+{
+  "name": "PlatziVideo",
+  "displayName": "PlatziVideo",
+  "expo": {
+    "name": "PlatziVideo",
+    "slug": "PlatziVideo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
