@@ -8,29 +8,24 @@ import Empty from '../components/empty';
 import SuggestionListLayout from '../components/suggestion-list-layout';
 import Suggestion from './components/suggestion';
 import Separator from './components/verticalSeparator'
-export default function SuggestionList(){
-    const list = [
-        {
-            title:'Avengers',
-            key:'1',
-        },
-        {
-            title:'Pokemon',
-            key:'2'
-        }
-
-    ]
+export default class SuggestionList extends React.Component{
+    renderEmpty = () =>  <Empty Text="No hay recomendaciones."/>
+    itemSeparator = () => <Separator/>
+    idExtractor = item => item.id.toString()
+    render(){
     return(   
         <SuggestionListLayout
         title="Recomendado para ti"
         >
             <FlatList 
-            data={list}
-            ListEmptyComponent={() => <Empty Text="No hay recomendaciones."/>}
-            ItemSeparatorComponent={() => <Separator/>}
-            renderItem={({item}) => <Suggestion {...item} />}
+            keyExtractor={this.idExtractor}
+            data={this.props.movies}
+            ListEmptyComponent={this.renderEmpty}
+            ItemSeparatorComponent={this.itemSeparator}
+            renderItem={(item) => <Suggestion {...item} />}
             />
         </SuggestionListLayout>
     );
     }
+}
 
