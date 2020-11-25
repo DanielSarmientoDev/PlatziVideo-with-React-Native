@@ -6,6 +6,7 @@ import {
 
 import Empty from '../components/empty';
 import SuggestionListLayout from '../components/suggestion-list-layout';
+import Suggestion from './components/suggestion';
 import Separator from './components/verticalSeparator'
 export default function SuggestionList(){
     const list = [
@@ -27,8 +28,9 @@ export default function SuggestionList(){
             data={list}
             ListEmptyComponent={() => <Empty Text="No hay recomendaciones."/>}
             ItemSeparatorComponent={() => <Separator/>}
-            renderItem={({item}) => <Text>{item.title}</Text>}
+            renderItem={({item}) => <Suggestion {...item} />}
             />
         </SuggestionListLayout>
     );
     }
+
