@@ -1,6 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View,Image } from 'react-native';
+import { StyleSheet, Text, View,Image,Platform } from 'react-native';
+//SwitchPlatform Sirve para variar el contenido tanto en ios o en android
+const switchPlatform = Platform.select({
+ios: 'Estoy en IO',
+android:'Estoy en Android'
+});
 
 export default function App() {
   return (
@@ -11,6 +16,9 @@ export default function App() {
       />
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
+      <Text>
+        {switchPlatform}
+      </Text>
     </View>
   );
 }
@@ -18,7 +26,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center'
   },
